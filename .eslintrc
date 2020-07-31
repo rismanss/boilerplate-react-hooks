@@ -16,6 +16,7 @@
     "jest": true
   },
   "rules": {
+    "react/jsx-props-no-spreading": "off",
     "space-before-function-paren": "off",
     "react/prefer-stateless-function": "warn",
     "react/jsx-one-expression-per-line": "off",
