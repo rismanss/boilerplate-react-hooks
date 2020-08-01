@@ -18,6 +18,13 @@
   ],
   "author": "Kamarul Risman <risman.kerja@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rismanss/boilerplate-react-hooks.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rismanss/boilerplate-react-hooks/issues"
+  },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.11.0",

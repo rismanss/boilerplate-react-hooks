@@ -16,7 +16,16 @@
     "jest": true
   },
   "rules": {
+    // dari sini----------cek lagi penambahan yang dibuat !!!
+    "jsx-a11y/label-has-associated-control": "off",
+    "no-alert": "off",
+    "no-param-reassign": "off",
+    "react/button-has-type": "off",
+    "no-console": "off",
+    // "react/prop-types": [2, { "ignore": ["children"] }],
+    "react/prop-types": "off", // ======= ::::: HARUS DI FIX PAKE PROPTYPES ....
     "react/jsx-props-no-spreading": "off",
+    // sampai sini----------cek lagi penambahan yang dibuat !!!
     "space-before-function-paren": "off",
     "react/prefer-stateless-function": "warn",
     "react/jsx-one-expression-per-line": "off",
