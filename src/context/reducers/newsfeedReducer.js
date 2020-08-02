@@ -1,11 +1,12 @@
 import {DATA, ERROR, PAGE, LOAD} from '../actions/actionNewsfeed';
 
 const newsfeedReducer = (state, action) => {
+  console.log(action, '...reducer');
   switch (action.type) {
     case DATA:
-      if (state.articles) {
+      if (state.articles && state.articles.length < state.totalResults) {
         return {
-          ...state,
+          ...action.payload,
           articles: [...state.articles, ...action.payload.articles]
         };
       }
