@@ -26,7 +26,7 @@ const Index = () => {
 
   const addUser = user => {
     const nextId = state.crud.slice(-1).map(data => data.id);
-    user.id = nextId + 1 || 1;
+    user.id = Number(nextId) + 1 || 1;
     dispatch(add(user));
   };
 

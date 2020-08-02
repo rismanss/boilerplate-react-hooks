@@ -1,10 +1,27 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Context } from '../../context/provider';
-import { page } from '../../context/actions/actionNewsfeed';
+import { fetchData, isError, load, page } from '../../context/actions/actionNewsfeed';
+import api from './api.json';
 
 const Index = () => {
   const [state, dispatch] = useContext(Context);
   console.log(state,'...state newsfeed');
+
+  const getData = async () => {
+    dispatch(load(true));
+    try {
+      const response = await fetch(`${api.url}&page=${state.newsfeed.page}`);
+      const result = await response.json();
+      dispatch(fetchData(result));
+    } catch (error) {
+      dispatch(isError(error));
+    }
+    dispatch(load(false));
+  };
+
+  useEffect(() => {
+    getData();
+  },[state.newsfeed.page]);
 
   return (
     <div className="container">
