@@ -6,7 +6,9 @@ export const Context = createContext();
 const Provider = props => {
   const initialState = {
     newsfeed: {
-      page: 1
+      page: 1,
+      articles: [],
+      totalResults: 0
     },
     crud: [
       {id: 1, name: 'clara', age: 27, status: false},

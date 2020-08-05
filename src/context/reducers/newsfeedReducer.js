@@ -1,20 +1,21 @@
-import {DATA, ERROR, PAGE, LOAD} from '../actions/actionNewsfeed';
+import {DATA, PAGE, LOAD} from '../actions/actionNewsfeed';
 
 const newsfeedReducer = (state, action) => {
-  console.log(action, '...reducer');
   switch (action.type) {
     case DATA:
-      if (state.articles && state.articles.length < state.totalResults) {
+      if(state.status === 'ok') {
         return {
+          ...state,
           ...action.payload,
-          articles: [...state.articles, ...action.payload.articles]
+          articles: [...state.articles, ...action.payload.articles],
+          isLoad: false,
         };
-      }
-      return {...action.payload, ...state};
-    case ERROR:
-      return {
-        ...action.payload
-      };
+      } 
+        return {
+          ...state,
+          ...action.payload,
+          isLoad: false,
+        };  
     case PAGE:
       return {
         ...state,

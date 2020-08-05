@@ -1,26 +1,23 @@
 import React, { useContext, useEffect } from 'react';
 import { Context } from '../../context/provider';
-import { fetchData, isError, load, page } from '../../context/actions/actionNewsfeed';
-import api from './api.json';
+import { fetchData, load, page } from '../../context/actions/actionNewsfeed';
 
 const Index = () => {
   const [state, dispatch] = useContext(Context);
-  console.log(state,'...state newsfeed');
 
-  const getData = async () => {
+  const getData = () => {
     dispatch(load(true));
-    try {
-      const response = await fetch(`${api.url}&page=${state.newsfeed.page}`);
-      const result = await response.json();
-      dispatch(fetchData(result));
-    } catch (error) {
-      dispatch(isError(error));
-    }
-    dispatch(load(false));
+    fetchData(state.newsfeed.page).then(res => {
+      dispatch({type: "DATA", payload: res.payload});
+    });
   };
 
   useEffect(() => {
-    getData();
+    if(state.newsfeed.articles && state.newsfeed.articles.length === 0) {
+      getData();
+    } else if (state.newsfeed.page === 2 && state.newsfeed.articles.length < state.newsfeed.totalResults) {
+      getData();
+    }
   },[state.newsfeed.page]);
 
   return (
