@@ -7,7 +7,6 @@ import Edit from './Edit';
 
 const Index = () => {
   const [state, dispatch] = useContext(Context);
-  console.log(state,'...state crud');
 
   const initUser = {id: null, name: '', age: '', status: false};
 

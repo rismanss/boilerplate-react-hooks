@@ -1,30 +1,33 @@
+import api from '../../pages/newsfeed/api.json';
+
 export const DATA = 'DATA';
 export const PAGE = 'PAGE';
 export const LOAD = 'LOAD';
-export const ERROR = 'ERROR';
 
-export const fetchData = (data) => {
-  return {
-    type: DATA,
-    payload: data
-  };
+export const fetchData = async (numberPage) => {
+  try {
+    const response = await fetch(`${api.url}&page=${numberPage}`);
+    const result = await response.json();
+    return {
+      type: DATA,
+      payload: result
+    };
+  } catch (err) {
+    return {
+      type: DATA,
+      payload: err
+    };
+  }
 };
 
-export function isError(error) {
-  return {
-    type: ERROR,
-    error
-  };
-};
-
-export function page(isPage) {
+export const page = (isPage) => {
   return {
     type: PAGE,
     isPage
   };
 };
 
-export function load(isLoad) {
+export const load = (isLoad) => {
   return {
     type: LOAD,
     isLoad
