@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { Context } from '../../context/provider';
 import { fetchData, load, page } from '../../context/actions/actionNewsfeed';
+import {Button, H1} from '../../components';
 
 const Index = () => {
   const [state, dispatch] = useContext(Context);
@@ -21,8 +22,8 @@ const Index = () => {
   },[state.newsfeed.page]);
 
   return (
-    <div className="container">
-      <h1>News Feed</h1>
+    <>
+      <H1>News Feed</H1>
       {state.newsfeed.isLoad && <p> Loading...</p>}
       {state.newsfeed.status !== 'ok' && state.newsfeed.message}
       <div>
@@ -34,11 +35,11 @@ const Index = () => {
         ))}
       </div>
       {state.newsfeed.articles && state.newsfeed.articles.length < state.newsfeed.totalResults ? (
-        <button disabled={state.newsfeed.isLoad} onClick={() => dispatch(page(state.newsfeed.page + 1))}>
+        <Button disabled={state.newsfeed.isLoad} onClick={() => dispatch(page(state.newsfeed.page + 1))}>
           Load More
-        </button>
+        </Button>
       ) : null}
-    </div>
+    </>
   );
 };
 

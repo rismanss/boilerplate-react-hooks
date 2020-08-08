@@ -1,13 +1,12 @@
 import React from 'react';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import routes from './routes';
-import Header from './component/Header';
+import {Header} from './components';
 
 const App = () => {
   return (
     <Router>
       <Header />
-      <hr />
       <Switch>
         {routes.map((route, i) => (
           <Route

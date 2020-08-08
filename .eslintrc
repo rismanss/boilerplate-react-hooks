@@ -18,9 +18,8 @@
   "rules": {
     // dari sini----------cek lagi penambahan yang dibuat !!!
     "jsx-a11y/label-has-associated-control": "off",
-    "no-alert": "off",
     "no-param-reassign": "off",
-    "react/button-has-type": "off",
+    // "react/button-has-type": "off",
     "no-console": "off",
     // "react/prop-types": [2, { "ignore": ["children"] }],
     "react/prop-types": "off", // ======= ::::: HARUS DI FIX PAKE PROPTYPES ....

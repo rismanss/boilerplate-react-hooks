@@ -40,14 +40,14 @@ const Index = () => {
 	};
 
   return (
-    <div className="container">
+    <>
       <List users={state.crud} deleteUser={deleteUser} formEdit={formEdit}/>
       {edit ?
         <Edit setEdit={setEdit} init={init} setInit={setInit} initUser={initUser} handleInput={handleInput} updateUser={updateUser}/>
       :
         <Add addUser={addUser} init={init} setInit={setInit} initUser={initUser} handleInput={handleInput}/>
       }
-    </div>
+    </>
   );
 };
 

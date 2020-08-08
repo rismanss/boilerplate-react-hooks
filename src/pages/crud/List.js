@@ -1,4 +1,5 @@
 import React from 'react';
+import {Button} from '../../components';
 
 const List = props => {
   const {users} = props;
@@ -22,18 +23,8 @@ const List = props => {
               <td>{user.age}</td>
               <td>{user.status ? 'Married' : 'Single'}</td>
               <td>
-                <button
-                  className="btn btn-sm btn-outline-dark"
-                  onClick={() => props.formEdit(user)}
-                >
-                  Edit
-                </button>
-                <button
-                  className="btn btn-sm btn-outline-dark"
-                  onClick={() => props.deleteUser(user.id)}
-                >
-                  Delete
-                </button>
+                <Button onClick={() => props.formEdit(user)}>Edit</Button>
+                <Button onClick={() => props.deleteUser(user.id)}>Delete</Button>
               </td>
             </tr>
           ))

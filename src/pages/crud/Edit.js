@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import {Button, CustomAlert} from '../../components';
 
 const Edit = props => {
   const {init, updateUser, setInit, initUser, handleInput, setEdit} = props;
   const [ user, setUser ] = useState(init);
+  const [ valid, setValid ] = useState(true);
 
   useEffect(() => {
     setUser(init);
@@ -10,12 +12,13 @@ const Edit = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (!user.name || !user.age) return alert('name or age data is empty!');
+    if (!user.name || !user.age) return setValid(false);
     updateUser(user.id, user);
     return setInit(initUser);
   };
   return (
     <form onSubmit={handleSubmit}>
+      {!valid && <CustomAlert onClick={() => setValid(true)} hidden={valid} message='name or age data is empty!'/>}
       <div className="form-row">
         <div className="form-group col-md-6">
           <label>Name</label>
@@ -32,13 +35,8 @@ const Edit = props => {
         <label className="form-check-label"> Status </label>
       </div>
       <div className="text-center">
-        <button className="btn btn-sm btn-primary col-md-5">Update</button>
-        <button 
-          className="btn btn-sm btn-secondary col-md-5"
-          onClick={() => {setEdit(false); setInit(initUser);}}
-        >
-          Cancel
-        </button>
+        <Button>Update</Button>
+        <Button onClick={() => {setEdit(false); setInit(initUser);}}>Cancel</Button>
       </div>
     </form>
   );
