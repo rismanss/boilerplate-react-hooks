@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import routes from './routes';
-import {Header} from './components';
+import {Header, Footer} from './components';
 
 const App = () => {
   return (
@@ -19,6 +19,7 @@ const App = () => {
           />
         ))}
       </Switch>
+      <Footer>© 2020 by risman.kerja@gmail.com</Footer>
     </Router>
   );
 };

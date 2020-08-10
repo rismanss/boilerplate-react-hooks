@@ -1,11 +1,11 @@
 import React from 'react';
-import {Button} from '../../components';
+import {Button, Table} from '../../components';
 
 const List = props => {
   const {users} = props;
   return (
-    <table className="table table-sm">
-      <thead className="table-dark">
+    <Table>
+      <thead>
         <tr>
           <th>Id</th>
           <th>Name</th>
@@ -34,7 +34,7 @@ const List = props => {
           </tr>
         )}
       </tbody>
-    </table>
+    </Table>
   );
 };
 

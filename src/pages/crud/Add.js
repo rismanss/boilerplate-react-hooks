@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {CustomAlert, Button} from '../../components';
+import {CustomAlert, Button, Field} from '../../components';
 
 const Add = props => {
   const {init, addUser, setInit, initUser, handleInput} = props;
@@ -20,20 +20,32 @@ const Add = props => {
   return (
     <form onSubmit={handleSubmit}>
       {!valid && <CustomAlert onClick={() => setValid(true)} hidden={valid} message='name or age data is empty!'/>}
-      <div className="form-row">
-        <div>
-          <label>Name</label>
-          <input type="text" name="name" value={user.name} onChange={handleInput} />
-        </div>
-        <div>
-          <label>Age</label>
-          <input type="number" name="age" value={user.age} onChange={handleInput} />
-        </div>
-      </div>
-      <div>
-        <input type="checkbox" name="status" checked={user.status} onChange={handleInput} />
-        <label> Status </label>
-      </div>
+      <Field
+        placeholder='name...'
+        label='Name'
+        width='50%'
+        type='text'
+        name='name'
+        value={user.name}
+        onChange={handleInput} 
+      />
+      <Field
+        placeholder='age...'
+        label='Age'
+        width='50%'
+        type='number'
+        name='age'
+        value={user.age}
+        onChange={handleInput} 
+      />
+      <Field
+        labelCheck='Married ?'
+        width='100%'
+        type='checkbox'
+        name='status'
+        checked={user.status}
+        onChange={handleInput} 
+      />
       <div>
         <Button>Save</Button>
       </div>

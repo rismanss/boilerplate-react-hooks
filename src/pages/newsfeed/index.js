@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { Context } from '../../context/provider';
 import { fetchData, load, page } from '../../context/actions/actionNewsfeed';
-import {Button, H1} from '../../components';
+import {Button, H1, Card, Link, H2, Text} from '../../components';
 
 const Index = () => {
   const [state, dispatch] = useContext(Context);
@@ -26,14 +26,14 @@ const Index = () => {
       <H1>News Feed</H1>
       {state.newsfeed.isLoad && <p> Loading...</p>}
       {state.newsfeed.status !== 'ok' && state.newsfeed.message}
-      <div>
-        {state.newsfeed.articles && state.newsfeed.articles.map((item, i) => (
-          <li key={i.toString()}>
-            <a href={item.url} target="blank">{item.title}</a>
-            <p>{item.content}</p>
-          </li>
-        ))}
-      </div>
+      {state.newsfeed.articles && state.newsfeed.articles.map((item, i) => (
+        <Card key={i.toString()}>
+          <Link href={item.url} target="blank">
+            <H2>{item.title}</H2>
+          </Link>
+          <Text>{item.content}</Text>
+        </Card>
+      ))}
       {state.newsfeed.articles && state.newsfeed.articles.length < state.newsfeed.totalResults ? (
         <Button disabled={state.newsfeed.isLoad} onClick={() => dispatch(page(state.newsfeed.page + 1))}>
           Load More

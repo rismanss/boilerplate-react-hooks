@@ -4,7 +4,9 @@ import styled from 'styled-components';
 
 const NavBar = styled.div`
   text-align: center;
-  border-bottom: 1px solid lightgrey;
+  margin-bottom: 2em;
+  background: #05111d;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 61%);
 `;
 
 const HeaderLink = styled(NavLink)`
