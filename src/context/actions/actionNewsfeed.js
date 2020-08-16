@@ -6,7 +6,7 @@ export const LOAD = 'LOAD';
 
 export const fetchData = async (numberPage) => {
   try {
-    const response = await fetch(`${api.url}&page=${numberPage}`);
+    const response = await fetch(`${api.url}&page=${numberPage}`, {mode: 'cors'});
     const result = await response.json();
     return {
       type: DATA,
