@@ -1,5 +1,5 @@
 import crudReducer from './reducers/crudReducer';
-import newsfeedReducer from './reducers/newsfeedReducer';
+import movieReducer from './reducers/movieReducer';
 
 // function for combine reducer
 const combineReducers = (slices) => (state, action) =>
@@ -11,6 +11,6 @@ const combineReducers = (slices) => (state, action) =>
     state
   );
 
-const rootReducer = combineReducers({crud: crudReducer, newsfeed: newsfeedReducer});
+const rootReducer = combineReducers({crud: crudReducer, movie: movieReducer});
 
 export default rootReducer;

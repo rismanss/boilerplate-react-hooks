@@ -1,6 +1,6 @@
 import home from './pages/home';
 import notFound from './pages/notFound';
-import newsfeed from './pages/newsfeed';
+import movie from './pages/movie';
 import crud from './pages/crud';
 
 const routes = [
@@ -10,9 +10,9 @@ const routes = [
     component: home
   },
   {
-    path: "/newsfeed",
+    path: "/movie",
     exact: true,
-    component: newsfeed
+    component: movie
   },
   {
     path: "/crud",

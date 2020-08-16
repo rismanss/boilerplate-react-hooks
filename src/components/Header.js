@@ -39,7 +39,7 @@ const Header = () => {
   return (
     <NavBar>
       <HeaderLink exact to="/">Home</HeaderLink>
-      <HeaderLink exact to="/newsfeed">NewsFeed</HeaderLink>
+      <HeaderLink exact to="/movie">Movie</HeaderLink>
       <HeaderLink exact to="/crud">Crud</HeaderLink>
     </NavBar>
   );

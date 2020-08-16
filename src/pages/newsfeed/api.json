@@ -1,4 +1,0 @@
-{
-  "proxyUrl": "https://cors-anywhere.herokuapp.com/",
-  "url": "https://newsapi.org/v2/top-headlines?country=id&apiKey=153d280773f64bf394291d2fe6c7da10"
-}
