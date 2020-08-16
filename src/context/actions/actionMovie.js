@@ -1,12 +1,12 @@
-import api from '../../pages/newsfeed/api.json';
+import api from '../../pages/movie/api.json';
 
 export const DATA = 'DATA';
 export const PAGE = 'PAGE';
 export const LOAD = 'LOAD';
 
-export const fetchData = async (numberPage) => {
+export const fetchData = async (title, numberPage) => {
   try {
-    const response = await fetch(`${api.url}&page=${numberPage}`);
+    const response = await fetch(`${api.url}&s=${title}&page=${numberPage}`);
     const result = await response.json();
     return {
       type: DATA,
