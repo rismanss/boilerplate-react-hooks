@@ -12,10 +12,9 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>boilerplate for react hooks</title>
         <meta charset="UTF-8" />
+        <title>boilerplate for react hooks</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        {/* <meta http-equiv="X-UA-Compatible" content="ie=edge" /> */}
         <meta
           name="description"
           content="this is boilerplate for react hooks"
@@ -24,7 +23,7 @@ const Home = () => {
           property="og:url"
           content="https://rismanss.github.io/boilerplate-react-hooks/#/"
         />
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
         <meta property="og:title" content="boilerplate for react hooks" />
         <meta
           property="og:description"
@@ -50,7 +49,6 @@ const Home = () => {
         <FacebookShareButton
           url="https://rismanss.github.io/boilerplate-react-hooks/#/"
           quote="boilerplate for react hooks"
-          className="Demo__some-network__share-button"
         >
           <FacebookIcon size={32} round />
         </FacebookShareButton>
@@ -58,7 +56,6 @@ const Home = () => {
         <div>
           <FacebookShareCount
             url="https://rismanss.github.io/boilerplate-react-hooks/#/"
-            className="Demo__some-network__share-count"
           >
             {(count) => count}
           </FacebookShareCount>
